@@ -1,0 +1,11 @@
+# Install CUDA-enabled torch and torchvision separately; see README.
+numpy==1.22.3
+scipy==1.10.1
+imageio==2.35.1
+Pillow==10.2.0
+tqdm==4.67.1
+python-dateutil==2.9.0.post0
+tensorboardX==2.6.2.2
+tensorflow==2.13.1
+six==1.17.0
+pytorch-image-generation-metrics==0.6.1
