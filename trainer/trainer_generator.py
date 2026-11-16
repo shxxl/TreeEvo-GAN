@@ -2435,7 +2435,11 @@ class GenTrainer():
         sig_a = self._tree_stage_signature(a)
         sig_b = self._tree_stage_signature(b)
         subtree_distance = float(np.mean([sa != sb for sa, sb in zip(sig_a, sig_b)]))
-        return min(1.0, max(0.0, 0.40 * gene_distance + 0.35 * active_distance + 0.25 * subtree_distance))
+        w_gene = float(getattr(self.args, 'tree_w_gene', 0.40))
+        w_active = float(getattr(self.args, 'tree_w_active', 0.35))
+        w_subtree = float(getattr(self.args, 'tree_w_subtree', 0.25))
+        return min(1.0, max(0.0,
+            w_gene * gene_distance + w_active * active_distance + w_subtree * subtree_distance))
 
     def _tree_parent_quality_score(self, genotype_G):
         pred = self._estimate_arch_quality(genotype_G)
