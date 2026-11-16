@@ -13,6 +13,7 @@ from archs.fully_super_network import simple_Discriminator
 from algorithms.search_algs import GanAlgorithm
 import torch
 import os
+import random
 import numpy as np
 import torch.nn as nn
 from tensorboardX import SummaryWriter
@@ -28,12 +29,16 @@ torch.backends.cudnn.benchmark = False
 def main():
     args = search_cfg.parse_args()
 
-    torch.cuda.manual_seed(args.random_seed)
-
     # ===================== GPU visible settings =====================
     # args.gpu_ids in parser usually string like "4" or "4,5"
     if len(args.gpu_ids) > 0:
         os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu_ids
+
+    # Seed all random streams before architecture sampling or model construction.
+    random.seed(args.random_seed)
+    np.random.seed(args.random_seed)
+    torch.manual_seed(args.random_seed)
+    torch.cuda.manual_seed_all(args.random_seed)
 
     # The first GPU in visible GPUs is dedicated for evaluation (running Inception model)
     str_ids = args.gpu_ids.split(',')
