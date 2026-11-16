@@ -106,8 +106,6 @@ def parse_args():
     )
 
     opt = parser.parse_args()
-
-    opt = parser.parse_args()
     groups = (
         ('tree distance weights', (opt.tree_w_gene, opt.tree_w_active, opt.tree_w_subtree)),
         ('forest parent weights', (opt.three_elite_fid_parent_weight,
