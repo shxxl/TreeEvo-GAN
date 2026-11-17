@@ -18,7 +18,7 @@ def parse_args():
     parser.add_argument('--dataset', type=str, default='cifar10', help='dataset type')
     parser.add_argument('--loss', type=str, default='hinge', help='loss function')
     parser.add_argument('--img_size', type=int, default=32, help='image size, 32 for cifar10, 48 for stl10')
-    parser.add_argument('--bottom_width', type=int, default=4, help='init resolution, 4 for cifar10, 6 for stl10')
+    parser.add_argument('--bottom_width', type=int, help='init resolution, 6 for stl10')
     parser.add_argument('--channels', type=int, default=3, help='image channels')
     parser.add_argument('--data_path', type=str, default='./data', help='dataset path')
 
