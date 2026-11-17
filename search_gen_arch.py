@@ -5,8 +5,6 @@ import datasets
 from trainer.trainer_generator import GenTrainer
 from trainer.trainer_utils import LinearLrDecay
 from utils.utils import set_log_dir, save_checkpoint, create_logger, count_parameters_in_MB
-from utils.inception_score import _init_inception
-from utils.fid_score import create_inception_graph, check_or_download_inception
 from utils.flop_benchmark import print_FLOPs
 from archs.super_network import Generator, Discriminator
 from archs.fully_super_network import simple_Discriminator
