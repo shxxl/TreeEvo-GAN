@@ -16,7 +16,7 @@ def parse_args():
     parser.add_argument('--random_seed', type=int, default=12345)
     parser.add_argument('--dataset', type=str, default='cifar10', help='dataset type')
     parser.add_argument('--img_size', type=int, default=32, help='image size, 32 for cifar10, 48 for stl10')
-    parser.add_argument('--bottom_width', type=int, default=4, help='init resolution, 4 for cifar10, 6 for stl10')
+    parser.add_argument('--bottom_width', type=int, help='initial spatial size of the generator feature map')
     parser.add_argument('--channels', type=int, default=3, help='image channels')
     parser.add_argument('--num_op_g', type=int, default=1, help='The number of training operations over the network,/')
     parser.add_argument('--exp_name', type=str, default='arch_searchG_cifar10', help='experiment name')
